@@ -1,0 +1,24 @@
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Unique ID for each user
+    name VARCHAR(255) NOT NULL,        -- User's name
+    email VARCHAR(255) NOT NULL UNIQUE, -- Email (must be unique)
+    password VARCHAR(255) NOT NULL,    -- Encrypted password
+    role ENUM('owner', 'customer') NOT NULL, -- User role, restricted to 'owner' or 'customer'
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp for account creation
+);
+
+
+CREATE TABLE agreement (
+    id INT AUTO_INCREMENT PRIMARY KEY,         -- Unique ID for each entry
+    name VARCHAR(255) NOT NULL,                -- Name of the person
+    email VARCHAR(255) NOT NULL,               -- Email of the person
+    phone VARCHAR(20) NOT NULL,                -- Phone number of the person
+    nid VARCHAR(50) NOT NULL,                  -- NID or Birth Certificate
+    members INT NOT NULL,                      -- Number of members
+    gender ENUM('male', 'female') NOT NULL,    -- Gender (only male or female allowed)
+    amount DECIMAL(10, 2) NOT NULL,            -- Amount (in currency, using decimal)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp when the record is created
+);
+
+
+
